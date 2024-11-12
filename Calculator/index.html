@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        body{
+            margin: 0%;
+            background-color: blueviolet;
+        }
+        .container{
+        
+        text-align: center;
+        margin: 100px;
+        }
+        .container input{
+            margin-bottom: 20px;
+            padding: 30px;
+
+        }
+        .container .buttons button{
+            padding: 13px  16px;
+            margin: 10px;
+            font-weight: bold;
+            font-size: 15px;
+            border-radius: 8px;
+            border: none ;
+            cursor: pointer;
+            
+        }
+        .container .buttons button:hover{
+            background-color: lightslategray;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="display" readonly>
+        <div class="buttons">
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button onclick="chooseOperation('+')">+</button><br>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button onclick="chooseOperation('-')">-</button><br>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button onclick="chooseOperation('*')">*</button><br>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="chooseOperation('/')">/</button>
+            <button onclick="clearDisplay()">C</button>
+            <button onclick="calculate()">=</button>  
+        </div>
+    </div>
+    <script>
+        let display = document.getElementById("display");
+        let currentOperation = '';
+        let firstOperand = '';
+
+        function appendNumber(number){
+            display.value += number
+        }
+        function chooseOperation(operation){
+            firstOperand = display.value;
+            currentOperation = operation;
+            display.value += `${operation}`;
+            
+        }
+        function clearDisplay() {
+            display.value = '';
+            firstOperand = '';
+            currentOperation = '';
+            
+        }
+        function calculate(){
+            const [firstOperand, secondOperand] = display.value.split(currentOperation);
+            let result;
+            switch (currentOperation) {
+                case '+':
+                    result = parseFloat(firstOperand) + parseFloat(secondOperand);
+                    break;
+                case '-':
+                    result = parseFloat(firstOperand) - parseFloat(secondOperand);
+                    break;  
+                case '*':
+                    result = parseFloat(firstOperand) * parseFloat(secondOperand);
+                    break; 
+                case '/':
+                    result = parseFloat(firstOperand) / parseFloat(secondOperand);
+                    break;
+                default:
+                    return;   
+            }
+            display.value +=  ` = ${result} `;
+        }
+
+    </script>
+    
+</body>
+</html>
