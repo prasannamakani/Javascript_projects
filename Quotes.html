@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-height: 100vh;
+            display: flex;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            background-color: blanchedalmond;
+            
+        }
+        .container{
+            background-color: aliceblue;
+           text-align: center;
+           padding: 2rem;
+           border-radius: 5px;
+           flex: 0 0 80%;
+
+
+        }
+        button{
+            padding: 10px;
+            background-color:green;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+        button:hover{
+            background-color:olive;
+        }
+        .quote_con{
+            background-color: lightgray;
+            padding: 15px;
+            border-left: 10px solid blanchedalmond;
+            border-radius: 10px;
+        }
+        .author{
+               padding-top: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h2>Quotes By Famous People </h2>
+        <button type="button" class="btn">Press to display the quote</button>
+        <div class="quote_con">
+            <h3 id ="quote">quote</h3>
+
+        </div>
+        <h4 class="author">Author of the quote</h4>
+    </div>
+
+    <script>
+        const quotes = [
+  {
+    name: "Albert Einstein",
+    quote: "Life is like riding a bicycle. To keep your balance, you must keep moving."
+  },
+  {
+    name: "Maya Angelou",
+    quote: "You will face many defeats in life, but never let yourself be defeated."
+  },
+  {
+    name: "Steve Jobs",
+    quote: "Innovation distinguishes between a leader and a follower."
+  },
+  {
+    name: "Nelson Mandela",
+    quote: "The greatest glory in living lies not in never falling, but in rising every time we fall."
+  },
+  {
+    name: "Amelia Earhart",
+    quote: "The most difficult thing is the decision to act, the rest is merely tenacity."
+  },
+  {
+    name: "Prasanna",
+    quote:"keep moving forward and don't be afraid of fear, fear is just an illution"
+  }
+];
+ 
+
+const quoteBtn = document.querySelector('.btn');
+let quoteBody = document.getElementById('quote');
+let author = document. querySelector('.author');
+quoteBtn.addEventListener('click',displayText);
+
+
+
+function displayText(){
+    let number = Math.floor(Math.random()*quotes.length);
+    quoteBody.innerHTML = quotes[number].quote;
+    author.innerHTML=quotes[number].name; 
+}
+    </script>
+</body>
+</html>
