@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .colorbtn{
+            padding: 10px;
+            color: white;
+            background-color: black;
+            font-size: 15px;
+            border-radius: 15px;
+            cursor: pointer;
+            border: none;
+
+        }
+        .colorbtn:hover{
+            background-color:green;
+
+        }
+
+    </style>
+</head>
+<body>
+    <button type="button" class="colorbtn">Press Here To Change Color</button>
+    <script>
+        const color =document.querySelector('.colorbtn');
+        const body = document.querySelector('body');
+        const colors = ['yellow','red','blue','orange'];
+
+
+        color.addEventListener('click',changeColor);
+
+
+        function changeColor (){
+            let random = Math.floor(Math.random()*colors.length)
+            body.style.backgroundColor =colors[random];
+        }
+
+    </script>
+</body>
+</html>
