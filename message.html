@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-height: 100vh;
+            background-color: lightgreen;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color:brown;
+            font-family: sans-serif;
+            text-transform: capitalize;
+
+        }
+        .container{
+            background-color: lightgray;
+            padding: 25px;
+            border-radius:20px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            
+        }
+    
+        
+        input [type=text]{
+            font-size:bold;
+            
+        }
+        input{
+            padding: 20px 40px;
+            border-radius: 5px;
+            box-shadow: 2px solid black;
+            
+
+        }
+        button{
+            display: block;
+            padding: 20px 40px;
+            background-color: green;
+            border-radius: 5px;
+            border: none;
+            color: white;
+            text-transform: capitalize;
+            font-size:20px;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+            margin: 15px auto;
+        }
+        button:hover{
+            opacity: 0.5;
+        }
+        input[type=text]{
+            font-size: 2rem;
+            font-weight: 25px;
+            color:lightsalmon;
+            border: 3px solid green;
+
+
+        }
+        input[type=text]:focus{
+            box-shadow: 0 0 10px green;
+            
+        }
+        .msgout{
+            font-size: 2rem;
+            margin: 15px 0px;
+            color: green;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1> what message would like to send</h1>
+        <div class="con2">
+        <input type="text" class="msgin">
+        <button type="button"class="btn">press to send</button>
+        </div>
+        <h1>
+            last message delivered
+        </h1>
+        <h3 class="msgout"></h3>
+    </div>
+    <script>
+        const msg = document.querySelector('.msgin');
+        const btn = document.querySelector('.btn');
+        const msgout = document.querySelector('.msgout');
+        btn.addEventListener('click',display);
+
+        function display(){
+            let content = msg.value;
+            if (content==''){
+                alert('please enter the message')
+            }
+            else{
+            msgout.innerHTML = content;
+            msg.value='';}
+        }
+        
+
+    </script>
+</body>
+</html>
