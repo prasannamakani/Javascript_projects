@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .screen{
+            background-color: black;
+            font-size: 20px;
+            padding: 20px 145px;
+            border-radius: 5px;
+            color:white;
+            
+        }
+        .btns{
+            display: flex;
+            flex-wrap: wrap;
+            
+            
+        }
+        button{
+            flex: 0 0 25%;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: aqua;
+        }
+        #yellow{
+            background-color:orange;
+            
+        }
+        #btn-equal{
+            background-color: green;
+        }
+        #btn-clear{
+            background-color: red;
+        }
+        #btn-equal:hover{
+            background-color: blueviolet;
+        }
+        #btn-clear:hover{
+            background-color:blueviolet;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <section class="calculator">
+        <form>
+            <input type="text" class="screen">
+        </form>
+        <div class="btns">
+            <button type="button" class="btn-grey" id="yellow"  data-num="/">/</button>
+            <button type="button" class="btn-grey" id="yellow"  data-num="*">*</button>
+            <button type="button" class="btn-grey" id="yellow"  data-num="-">-</button>
+            <button type="button" class="btn-grey" id="yellow"  data-num="+">+</button>
+
+            <button type="button" class="btn-grey" data-num=".">.</button>
+            <button type="button" class="btn-grey" data-num="9">9</button>
+            <button type="button" class="btn-grey" data-num="8">8</button>
+            <button type="button" class="btn-grey" data-num="7">7</button>
+            <button type="button" class="btn-grey" data-num="6">6</button>
+            <button type="button" class="btn-grey" data-num="5">5</button>
+            <button type="button" class="btn-grey" data-num="4">4</button>
+            <button type="button" class="btn-grey" data-num="3">3</button>
+            <button type="button" class="btn-grey" data-num="2">2</button>
+            <button type="button" class="btn-grey" data-num="1">1</button>
+            <button type="button" class="btn-grey" data-num="0">0</button>
+
+            <button type="button" id="btn-equal">=</button>
+            <button type="button" id="btn-clear">C</button>
+        </div>
+    </section>
+    <script>
+        const btns = document.querySelectorAll('.btn-grey');
+        const screen = document.querySelector('.screen');
+        const equal = document.getElementById('btn-equal');
+        const clear = document.getElementById('btn-clear');
+        for (let i = 0; i < btns.length; i++){
+            btns[i].addEventListener('click',function(){
+            let num = btns[i].getAttribute('data-num');
+            screen.value += num 
+            })
+        }
+
+    equal.addEventListener('click',function(){
+        if (screen.value === ""){
+            alert('input is empty');
+        }
+        else{
+        let result = eval(screen.value);
+        screen.value = result;
+    }
+    })
+    clear.addEventListener('click',function(){
+        screen.value = '';
+    })
+
+    </script>
+</body>
+</html>
